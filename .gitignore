@@ -1,4 +1,4 @@
-# ignore executables e.g av.exe and ae.exe from SAMI-TA
+# ignore executables
 **/*.exe
 
 # ignore thumbs.db types of files

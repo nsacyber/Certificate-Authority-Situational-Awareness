@@ -1,8 +1,5 @@
 # Certificate Authority Situational Awareness
 
-
-## About CASA
-
 The Certificate Authority Situational Awareness (CASA) application offers insights into the Certificate Authorities (CAs) currently trusted on a network.
 
 
