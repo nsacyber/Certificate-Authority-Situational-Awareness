@@ -1,0 +1,110 @@
+<form>
+  <label>CA Search</label>
+  <fieldset submitButton="false" autoRun="false">
+    <html>
+      <p>
+        <br/>
+        <strong>Multiselect choices</strong>
+      </p>
+	</html>
+    <input type="time" token="time" searchWhenChanged="true">
+      <label>Time Range</label>
+      <default>
+        <earliest>-7d</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="multiselect" token="host" searchWhenChanged="true">
+      <label>Host</label>
+      <search>
+        <query>tag=certificate_index tag=certificate_source tag=certificate_authority | eval ed2=strptime(ssl_end_time, "%m/%d/%Y %I:%M:%S %p") | eval now=now() | eval timeDiff=ed2-now | where timeDiff&gt;0 | table host | dedup host | sort auto(host)</query>
+        <earliest>$time.earliest$</earliest>
+        <latest>$time.latest$</latest>
+      </search>
+      <valuePrefix>host="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <fieldForLabel>host</fieldForLabel>
+      <fieldForValue>host</fieldForValue>
+      <delimiter> OR </delimiter>
+      <default>*</default>
+      <choice value="*">All</choice>
+    </input>
+    <input type="multiselect" token="issuer" searchWhenChanged="true">
+      <label>Issuer</label>
+      <search>
+        <query>tag=certificate_index tag=certificate_source tag=certificate_authority | eval ed2=strptime(ssl_end_time, "%m/%d/%Y %I:%M:%S %p") | eval now=now() | eval timeDiff=ed2-now | where timeDiff&gt;0 | dedup ssl_issuer | table ssl_issuer</query>
+        <earliest>$time.earliest$</earliest>
+        <latest>$time.latest$</latest>
+      </search>
+      <fieldForLabel>ssl_issuer</fieldForLabel>
+      <fieldForValue>ssl_issuer</fieldForValue>
+      <valuePrefix>ssl_issuer="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <delimiter> OR </delimiter>
+      <choice value="*">All</choice>
+      <default>*</default>
+    </input>
+    <input type="multiselect" token="thumbprint" searchWhenChanged="true">
+      <label>Thumbprint</label>
+      <default>*</default>
+      <search>
+        <query>tag=certificate_index tag=certificate_source tag=certificate_authority | eval ed2=strptime(ssl_end_time, "%m/%d/%Y %I:%M:%S %p") | eval now=now() | eval timeDiff=ed2-now | where timeDiff&gt;0 | dedup Thumbprint | table Thumbprint</query>
+        <earliest>$time.earliest$</earliest>
+        <latest>$time.latest$</latest>      
+      </search>
+      <fieldForLabel>Thumbprint</fieldForLabel>
+      <fieldForValue>Thumbprint</fieldForValue>
+      <valuePrefix>Thumbprint="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <delimiter> OR </delimiter>
+      <choice value="*">All</choice>
+    </input>
+    <input type="multiselect" token="SignatureAlgorithm" searchWhenChanged="true">
+      <label>Signature Algorithm</label>
+      <search>
+        <query>tag=certificate_index tag=certificate_source tag=certificate_authority | eval ed2=strptime(ssl_end_time, "%m/%d/%Y %I:%M:%S %p") | eval now=now() | eval timeDiff=ed2-now | where timeDiff&gt;0 | dedup ssl_signature_algorithm | table ssl_signature_algorithm</query>
+        <earliest>$time.earliest$</earliest>
+        <latest>$time.latest$</latest>      
+      </search>
+      <fieldForLabel>ssl_signature_algorithm</fieldForLabel>
+      <fieldForValue>ssl_signature_algorithm</fieldForValue>
+      <delimiter> OR </delimiter>
+      <choice value="*">All</choice>
+      <valuePrefix>ssl_signature_algorithm="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <default>*</default>
+    </input>
+    <input type="multiselect" token="KeySize" searchWhenChanged="true">
+      <label>Key Size</label>
+      <choice value="*">All</choice>
+      <search>
+        <query>tag=certificate_index tag=certificate_source tag=certificate_authority | eval ed2=strptime(ssl_end_time, "%m/%d/%Y %I:%M:%S %p") | eval now=now() | eval timeDiff=ed2-now | where timeDiff&gt;0 | eval Public_Key_Size=coalesce(Public_Key_Size, "Unknown") | dedup Public_Key_Size | table Public_Key_Size</query>
+        <earliest>$time.earliest$</earliest>
+        <latest>$time.latest$</latest>      
+      </search>
+      <fieldForLabel>Public_Key_Size</fieldForLabel>
+      <fieldForValue>Public_Key_Size</fieldForValue>
+      <valuePrefix>Public_Key_Size="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <default>*</default>
+      <delimiter> OR </delimiter>
+      </input>
+  </fieldset>
+  <row>
+    <panel>
+      <table>
+        <title>Certificate Authorities</title>
+        <search>
+          <query>tag=certificate_index tag=certificate_source tag=certificate_authority $host$ $issuer$ $thumbprint$ $SignatureAlgorithm$ | eval ed2=strptime(ssl_end_time, "%m/%d/%Y %I:%M:%S %p") | eval now=now() | eval timeDiff=ed2-now | where timeDiff&gt;0 | eval Public_Key_Size=coalesce(Public_Key_Size, "Unknown") | search $KeySize$ | table host, ssl_subject, ssl_issuer, ssl_start_time, ssl_end_time, Thumbprint, ssl_signature_algorithm, ssl_publickey_algorithm, Public_Key_Size, ssl_publickey | rename host as "Host", ssl_signature_algorithm as "Signature Algorithm", ssl_publickey_algorithm as "Key Algorithm", Public_Key_Size as "Key Size", ssl_publickey as "Raw Key Value", ssl_subject as Subject, ssl_issuer as Issuer, ssl_start_time as NotBefore, ssl_end_time as NotAfter</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">true</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
+  </row>
+</form>

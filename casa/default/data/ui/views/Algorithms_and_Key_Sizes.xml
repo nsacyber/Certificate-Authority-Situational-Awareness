@@ -1,0 +1,66 @@
+<form>
+  <label>Status of Algorithms and Key Sizes</label>
+  <fieldset submitButton="false" autoRun="false">
+    <input type="dropdown" token="isRecommended" searchWhenChanged="true">
+      <label>Status</label>
+      <default>Recommended</default>
+      <choice value="Recommended">Recommended</choice>
+      <choice value="Not Recommended">Not Recommended</choice>
+      <choice value="Unknown">Unknown</choice>
+    </input>
+  </fieldset>
+  <row>
+    <html>
+      <center>
+        <p style="font-size:14px">Recommended algorithms and key sizes are based on NIST Special Publication 800-57 Part 3, Table 2-2:</p>
+        <table border="1">
+          <tr>
+            <th style="font-size:12px">Public Key Algorithms and Key Sizes</th>
+            <th>Hash Algorithms</th>
+            <th>Padding Scheme</th>
+          </tr>
+          <tr>
+            <td>RSA (2048 or 3072 bits)</td>
+            <td>SHA-256</td>
+            <td>PKCS #1 v1.5, PSS</td>
+          </tr>
+          <tr>
+            <td>ECDSA (Curve P-256)</td>
+            <td>SHA-256</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>ECDSA (Curve P-384)</td>
+            <td>SHA-384</td>
+            <td>N/A</td>
+          </tr>
+        </table>
+      </center>
+    </html>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Certificate Authorities</title>
+        <search>
+          <query>tag=certificate_index tag=certificate_source tag=certificate_authority hoursago=168 | eval ed2=strptime(ssl_end_time, "%m/%d/%Y %I:%M:%S %p") | eval now=now() | eval timeDiff=ed2-now | where timeDiff&gt;0
+            | rex field=ssl_signature_algorithm "(?P&lt;hashAlgType&gt;\w+?)(?P&lt;hashAlgSize&gt;\d+)(?P&lt;pubKeyAlgType&gt;\w+)" 
+            | eval hashAlg=upper(hashAlgType) + "-" + hashAlgSize
+            | eval eccCurve=case(Encoded_Key_Parameters="06 08 2A 86 48 CE 3D 03 01 07", "P-256", Encoded_Key_Parameters="06 05 2B 81 04 00 22", "P-384", 1=1, "UNKNOWN")
+            | eval pubKeyParams=case(isnotnull(Public_Key_Size), "(" + Public_Key_Size + " bits)", pubKeyAlgType="ECDSA", "(Curve " + eccCurve + ")", 1=1, pubKeyParams)
+            | eval pubKeyAlg=pubKeyAlgType + " " + pubKeyParams
+            | eval recommended=case(Public_Key_Algorithm=="RSA" AND hashAlgSize >= 256 AND Public_Key_Size>= 2048, "Recommended", Public_Key_Algorithm=="ECC" AND hashAlgSize >= 384 AND Encoded_Key_Parameters=="06 05 2B 81 04 00 22", "Recommended", Public_Key_Algorithm=="ECC" AND hashAlgSize >= 256 AND Encoded_Key_Parameters=="06 08 2A 86 48 CE 3D 03 01 07", "Recommended", Public_Key_Algorithm=="ECC" AND isnull(Encoded_Key_Parameters), "Unknown", 1=1, "Not Recommended")
+            | where recommended=$isRecommended|s$ | dedup Thumbprint 
+            | table Thumbprint, pubKeyAlg, hashAlg | sort Thumbprint | rename pubKeyAlg AS "Public Key Algorithm and Key Size" hashAlg AS "Hash Algorithm"</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">true</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="count">20</option>
+      </table>
+    </panel>
+  </row>
+</form>

@@ -1,0 +1,46 @@
+<form>
+  <label>CA Extensions</label>
+  <fieldset submitButton="false" autoRun="false">
+    <input type="time" token="time" searchWhenChanged="true">
+      <label></label>
+      <default>
+        <earliest>-7d</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="multiselect" token="thumbprint" searchWhenChanged="true">
+      <label>Thumbprint</label>
+      <default>*</default>
+      <search>
+        <query>tag=certificate_index tag=certificate_source tag=certificate_authority | table Thumbprint | dedup Thumbprint</query>
+        <earliest>$time.earliest$</earliest>
+        <latest>$time.latest$</latest>
+      </search>
+      <fieldForLabel>Thumbprint</fieldForLabel>
+      <fieldForValue>Thumbprint</fieldForValue>
+      <valuePrefix>Thumbprint="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <delimiter> OR </delimiter>
+      <choice value="*">All</choice>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <table>
+        <title>Certificate Authority Extensions</title>
+        <search>
+          <query>tag=certificate_index tag=certificate_source tag=certificate_authority $thumbprint$ | eval ed2=strptime(ssl_end_time, "%m/%d/%Y %I:%M:%S %p") | eval now=now() | eval timeDiff=ed2-now | where timeDiff>0 | dedup Thumbprint 
+            | table Thumbprint, ssl_ext_Unique_Identifiers, ssl_ext_Authority_Key_Identifier, ssl_ext_Subject_Key_Identifier, ssl_ext_Key_Usage, ssl_ext_Certificate_Policies, ssl_ext_Policy_Mappings, ssl_ext_Subject_Alternative_Name, ssl_ext_Issuer_Alternate_Name, ssl_ext_Subject_Directory_Attributes, ssl_ext_Basic_Constraints, ssl_ext_Name_Constraints, ssl_ext_Policy_Constraints, ssl_ext_Extended_Key_Usage, ssl_ext_CRL_Distribution_Points, ssl_ext_Inhibit_Policy, ssl_ext_Freshest_CRL, ssl_pri_ext_Authority_Information_Access, ssl_pri_ext_Subject_Information_Access 
+            | rename ssl_ext_Unique_Identifiers AS "Unique Identifiers", ssl_ext_Authority_Key_Identifier AS "Authority Key Identifier", ssl_ext_Subject_Key_Identifier AS "Subject Key Identifier", ssl_ext_Key_Usage AS "Key Usage", ssl_ext_Certificate_Policies AS "Certificate Policies", ssl_ext_Policy_Mappings AS "Policy Mappings", ssl_ext_Subject_Alternative_Name AS "Subject Alternate Name", ssl_ext_Issuer_Alternate_Name AS "Issuer Alternate Name", ssl_ext_Subject_Directory_Attributes AS "Subject Directory Attributes", ssl_ext_Basic_Constraints AS "Basic Constraints", ssl_ext_Name_Constraints AS "Name Constraints", ssl_ext_Policy_Constraints AS "Policy Constraints", ssl_ext_Extended_Key_Usage AS "Extended Key Usage", ssl_ext_CRL_Distribution_Points AS "CRL Distribution Points", ssl_ext_Inhibit_Policy AS "Inhibit anyPolicy", ssl_ext_Freshest_CRL AS "Freshest CRL", ssl_pri_ext_Authority_Information_Access AS "Authority Information Access", ssl_pri_ext_Subject_Information_Access AS "Subject Information Access"</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">true</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
+  </row>
+</form>

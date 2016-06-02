@@ -1,0 +1,390 @@
+# Proposed App Certification Documentation Template
+**November 2014**
+
+All content listed in the table of contents is _required_.
+——-
+
+## Table of Contents
+
+### OVERVIEW
+
+- About CASA
+- Release notes
+- Performance benchmarks
+- Support and resources
+
+### INSTALLATION
+
+- Hardware and software requirements
+- Installation steps 
+- Deploy to single server instance
+- Deploy to distributed deployment
+- Deploy to distributed deployment with Search Head Pooling
+- Deploy to distributed deployment with Search Head Clustering
+- Deploy to Splunk Cloud 
+
+
+### USER GUIDE
+
+- Key concepts
+- Data types
+- Lookups
+- Configure <appname>
+- Troubleshooting
+- Upgrade
+- Example Use Case-based Scenario
+
+---
+### OVERVIEW
+
+#### About CASA
+
+| Author | Anonymous |
+| --- | --- |
+| App Version | 01 |
+| Has index-time operations | true, this add-on must be placed on indexers (LOOK to see if indexer & SearchHead can be seperated) |
+| Create an index | true, impacts disk storage |
+| Implements summarization | true, data model, data model acceleration by default |
+
+The CASA app allows a Splunk® Enterprise administrator to analyze CAs (Certificate Authorities), using simple visualizations to summarize the trusted CAs found across a network, as well as comparison capabilities against a whitelist/blacklist.
+
+##### Scripts and binaries
+
+Include a list of scripts and binaries that exist in the add-on and the purpose of each.
+1) certificateCollection_v4 -  Performs the gathering of data on each SUF endpoint. 
+2) Status.cmd -  Because restrictions prevent a .ps1 from being run directly this script will start the Batch script. 
+
+#### Release notes
+The CASA Application has not been extensively tested. Please read the licenses file included within the application. 
+
+*** License ***
+** This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <http://unlicense.org/>
+ **
+
+##### About this release
+
+Version 1.0 of CASA is compatible with:
+
+| Splunk Enterprise versions | <version numbers> |
+| --- | --- |
+| CIM | 4.3.1 |
+| Platforms | Microsoft Windows 7, Windows 10, Server 2008, Server 2012 |
+| Lookup file changes | N/A |
+
+##### New features
+
+N/A
+
+##### Fixed issues
+
+N/A
+
+##### Known issues
+
+None
+
+##### Third-party software attributions
+
+N/A
+
+#### Performance benchmarks
+
+None
+
+##### Support and resources
+
+**Questions and answers**
+
+N/A
+
+**Support**
+
+Support for this application is not provided. 
+
+
+## INSTALLATION AND CONFIGURATION
+
+### Hardware and software requirements
+
+#### Hardware requirements
+
+CASA supports the following server platforms in the versions supported by Splunk Enterprise:
+
+- Microsoft Server 2008
+- Microsoft Server 2012
+
+#### Software requirements
+
+To function properly, CASA requires the following software:
+
+- PowerShell, version 3.X or higher
+
+
+#### Splunk Enterprise system requirements
+
+Because this add-on runs on Splunk Enterprise, all of the [Splunk Enterprise system requirements](http://docs.splunk.com/Documentation/Splunk/latest/Installation/Systemrequirements) apply.
+
+#### Download
+
+Download the <appname> at <link to app location>.
+
+#### Installation steps
+
+Begin configuration by first setting up the deployment app with your deployment server and ensuring endpoints are collecting. In order for collection to begin, Splunk must have permissions to execute PowerShell commands.
+
+Configuration Items:
+  1) Setup Index
+  2) Deployment App
+  3) Endpoint Collection
+  4) Frequency of Collection
+
+  (1) Setup Index:
+  By default, CASA uses an index called cert_auth. In order to use a different index, or add additional indexes, see below to modify the associated tag in the app.
+
+  CASA references the index and source in each of the visualizations using the following tags: certificate_index and certificate_source. If you want to change the field/value pairs for these tags
+
+  Change the Settings > Tags > List by tag name, be sure to sort by App 'CASA' and edit the certificate_index/certificate_source field-value pair to the new index/source.csv.
+  Change the deployment-apps index stanza found under $SPLUNK_HOME\etc\apps\casa\casa_deployment_app\inputs.conf.
+
+  (2) Deployment App:
+  The CASA Splunk Deployment App found at this location [$SPLUNK_HOME\etc\apps\casa\casa_deployment_app] should be moved to the deployment-apps directory on the Deployment Server [$SPLUNK_HOME\etc\deployment-apps]
+
+  The app should then be added, via the GUI, to the desired server class. If a deployment server is not used, the app should be unzipped and placed in the apps directory on the desired Universal Forwarders -
+
+  [$SPLUNK_HOME\etc\apps]
+
+  (3) Endpoint Collection:
+  The endpoints will perform collection according to when the job is configured to run.
+
+
+  PowerShell:
+  Splunk must have have permission to execute the Batch script PowerShell commands. WIthout this permission the SUF can not gather the CA information for CASA.
+
+  Edit the code on the Splunk Deployment Server [$SPLUNK_HOME\etc\deployment-apps\casa\bin\certificateCollection_v4.ps1] in order to add any X.509 extension fields.
+
+  By default the script gathers the following fields:
+
+  Primary Fields:
+
+  PSParentPath
+  Enhanced Key Usage List
+  Issuer
+  NotAfter
+  NotBefore
+  Serial Number
+  Public Key Algorithm
+  Public Key Size
+  Encoded Key Parameters
+  Signature Algorithm
+  Thumbprint
+  Version
+  Subject
+  Public Key Value
+
+  Extended Fields (note, not all certificates use all extended fields):
+
+  Unique Identifiers
+  Authority Key Identifier
+  Subject Key Identifier
+  Key Usage
+  Certificate Policies
+  Policy Mappings
+  Subject Alternate Name
+  Issuer Alternate Name
+  Subject Directory Attributes
+  Basic Constraints
+  Name Constraints
+  Policy Constraints
+  Extended Key Usage
+  CRL Distribution Points
+  Inhibit Policy
+  Freshest CRL
+  Authority Information Access
+  Subject Information Access
+
+
+  CertificateList.csv:
+  Once the script has run a new file will be generated on that local host endpoint containing all of the fields and values collected: .\Windows\System32\certificateList.csv
+
+  This is the resulting file which is read into splunk by the SUF.
+
+
+
+  Altering the Lookup Tables:
+  Within the $SPLUNK_HOME\etc\apps\casa\lookups folder, there exist three lookup table files: DefaultCAList.csv, Whitelist.csv, and Blacklist.csv. To alter any of these lists, open the file in a text editor and save the changes; the lookup tables will be automatically updated.
+
+
+  (4) Frequency of Collection:
+  The current configuration allows for collection of CAs once a week. To alter this collection two changes must be made.
+
+  The first change is in the deployment app. Navigate to $SPLUNK_HOME\etc\deployment-apps\casa\local and open inputs.conf. Alter the cron schedule to the desired range, save the changes, and redeploy the app to the desired hosts (Note: the changes must be made on all of the hosts).
+  The second change is in the searches within the CASA app. Navigate to $SPLUNK_HOME\etc\apps\casa\default and open savedsearches.conf. For every saved search, find the search key and alter the hoursago argument to the desired ranged. Preferably, this integer would correlate to the time lapse between ingest cycles. Restart Splunk. [default is 7 days or 168 hours ago]
+
+
+##### Deploy to single server instance
+
+Follow these steps to install the app in a single server instance of Splunk Enterprise:
+
+**Install to search head**
+
+1. Setup Index:
+  - By default, CASA uses an index called cert_auth. In order to use a different index, or add additional indexes, see below to modify the associated tag in the app.
+
+  - CASA references the index and source in each of the visualizations using the following tags: certificate_index and certificate_source. If you want to change the field/value pairs for these tags
+    + Change the Settings/Manager > Tags, sort by App 'CASA' and edit the certificate_index field-value pair to the new index.
+    + Change the deployment-apps index stanza found under $SPLUNK_HOME\etc\apps\casa\casa_deployment_app\casa\inputs.conf.
+
+2. Deployment App:
+  - The CASA Splunk Deployment App found at this location [$SPLUNK_HOME\etc\apps\casa\casa_deployment_app\casa] should be moved to the deployment-apps directory on the Deployment Server [$SPLUNK_HOME\etc\deployment-apps]
+
+  - The app should then be added, via the GUI, to the desired server class. If a deployment server is not used, the app should be unzipped and placed in the apps directory on the desired Universal Forwarders [$SPLUNK_HOME\etc\apps]. Restart splunkd to push application.
+
+
+##### Deploy to distributed deployment
+
+**Install to search head**
+
+1. Setup Index:
+  - By default, CASA uses an index called cert_auth. In order to use a different index, or add additional indexes, see below to modify the associated tag in the app.
+
+  - CASA references the index and source in each of the visualizations using the following tags: certificate_index and certificate_source. If you want to change the field/value pairs for these tags
+    + Change the Settings/Manager > Tags, sort by App 'CASA' and edit the certificate_index field-value pair to the new index.
+    + Change the deployment-apps index stanza found under $SPLUNK_HOME\etc\apps\casa\casa_deployment_app\casa\inputs.conf.
+
+2. Extract the application to [$SPLUNK_HOME\etc\apps]
+
+**Install to indexers**
+
+**Install to forwarders**
+
+  1) The CASA Splunk Deployment App found at this location [$SPLUNK_HOME\etc\apps\casa\casa_deployment_app\casa] should be moved to the deployment-apps directory on the Deployment Server [$SPLUNK_HOME\etc\deployment-apps] 
+
+  2) The app should then be added, via the GUI, to the desired server class. 
+
+##### Deploy to distributed deployment with Search Head Pooling
+
+##### Deploy to distributed deployment with Search Head Clustering
+
+##### Deploy to Splunk Cloud
+
+
+
+## USER GUIDE
+
+### Key concepts for CASA
+
+CASA provides a solution to the current limitations of analyzing Certificate Authorities, using simple visualizations to summarize the trusted CAs found across a network, as well as searching and whitelist/blacklist comparison capabilities.
+
+### Data types
+
+This app provides the index-time and search-time knowledge for the following types of data from X.509 Certificate Authority local Windows machine stores:
+
+**Data type**
+
+- csv, this Sourcetype relates to all of the certificate authority data pulled into the application index. Information relates to X.509 field & value pairs.
+
+These data types support the following Common Information Model data models:
+
+- Certificate, The model was extended to support X.509 V2 and V3.
+
+### Lookups
+
+The CASA application contains 3 lookup files.
+
+** Blacklist.csv **
+
+Description of what the lookup does.
+
+- File location: C:\Program Files\Splunk\etc\apps\casa\lookups\Blacklist.csv
+- Lookup fields: Bad_Thumbprint, Status
+- Lookup contents: 
+	Bad_Thumbprint					Status
+	C0DB578157E9EE82B5917DF0DD6D82EE9039C4E2	TRUE
+	C69F28C825139E65A646C434ACA5A1D200295DB1	TRUE
+	F92BE5266CC05DB2DC0DC3F2DC74E02DEFD949CB	TRUE
+	F17F6FB631DC99E3A3C87FFE1CF1811088D96033	TRUE
+	7AC5FFF8DCBC5583176877073BF751735E9BD358	TRUE
+	AB16DD144ECDC0FC4BAAB62ECF0408896FDE52B7	TRUE
+	F48B11BFDEABBE94542071E641DE6BBE882B40B9	TRUE
+
+
+** DefaultCAList.csv **
+
+Description of what the lookup does.
+
+- File location: C:\Program Files\Splunk\etc\apps\casa\lookups\DefaultCAList.csv
+- Lookup fields: Please examine/refer to the file directly. [Apps\CASA\lookups]
+- Lookup contents: The file contains 589 rows(values\records) and 28 columns(fields\attributes), please examine/refer to the file directly. [Apps\CASA\lookups]
+
+** Whitelist.csv **
+
+Description of what the lookup does.
+
+- File location: C:\Program Files\Splunk\etc\apps\casa\lookups\Whitelist.csv
+- Lookup fields: Good_Thumbprint, Status
+- Lookup contents: 
+	Good_Thumbprint					Status
+	4BB63856F2246FD35BCDE1F5AD537728FB3A40B5	TRUE
+	2F1F07523135DCBF1E139EA5741D99F445EC8A09	TRUE
+	C61423CF8D42B82B12BBCE654D3EEAD88D5CD0EA	TRUE
+	01BA0F5A33E4653E8398BE8A5B28CF1E375E692C	TRUE
+	10F193F340AC91D6DE5F1EDC006247C4F25D9671	TRUE
+	3A32EF7B9AB836F837181A4CEFA355C64667ACBF	TRUE
+	5043435C89B7A77D884137FEEFC00DC7E2AB9478	TRUE
+	77B6B942F887608BADB837564D9AED85AED6FC7D	TRUE
+	8C941B34EA1EA6ED9AE2BC54CF687252B4C9B561	TRUE
+	936147635154C99E5042D2B3B5ACB65AE238911E	TRUE
+	C313F919A6ED4E0E8451AFA930FB419A20F181E4	TRUE
+	D62ED2E228AA62001E5C1B51DADFAB0475370CC0	TRUE
+
+
+### Configure CASA
+
+Details of any configurations a user must make in order to get the app running.
+
+### Troubleshoot CASA
+
+***Problem***
+Unknown
+***Cause***
+N/A
+***Resolution***
+N/A
+
+### Upgrade CASA
+N/A
+
+### Example Use Case ###
+Describe a use case in which a hypothetical user installs, configures, then uses the app to achieve a particular goal. Example should be replicable.
+
+1) Monitoring users and administrators whom may have permissions on the enviornment can be tricky. In this use-case we use the blacklist/whitelist 
+to identify the workstations that have Certificate Authorities listed on a whitelist. When a user/administrator or even malicious software, installs 
+a certificate authority onto a local workstation microsoft CA store as a trusted publisher it could be signed by a trusted but unexpected CA. In particular 
+CA's might be created or self signed and appear leggitimate but can be malicious. The best way to detect these types of unauthorized CA's on your network 
+is to enter all of the CA's thumbprint(s) into the whitelist csv that are defaults on your network and that have been created by yourself or organization. 
+Then once inside of CASA, under the Analytics Dashboard on the "Status of Trusted CAs" panel you can view Gray CAs which are CAs that have not been 
+categorized as Black or White listed CAs. By using this method to identify CAs, in this case CASA can effectively help you visualize and monitor active 
+CAs on workstations. By default the installation of CASA runs once a week so results may very from day to day.

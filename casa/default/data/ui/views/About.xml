@@ -1,0 +1,228 @@
+<dashboard stylesheet="style.css">
+    <label>About</label>
+    <row>
+
+        <!-- BEGIN PANEL 1 -->
+		<html>
+            <h1><center>Welcome to CASA the Certificate Authority Situational Awareness App</center></h1>
+            
+			<h3><center><font color="#888888"> Version 1.0</font></center></h3>
+            <br></br>
+			<h5><p><em><font color="#BBBBBB">*Please note that example CAs data set utilized do not reflect real threats even if identified as such within a dashboard; Particularly for Blacklist,Whitelist,Graylist &amp; Invalid Trust Chain panels.</font></em></p></h5>
+			
+			<br><h2><u><font color="#6699FF">App Overview </font></u></h2></br>
+	            <p>  This solution allows for a user to do three things: visualize metrics on <abbr title="Certificate Authorities">CAs</abbr> across a network, compare CAs on a network against a whiltelist/blacklist, and search if a given CA (based on attributes) is living anywhere on a network. CASA is divided into two pieces, a Splunk app and a Splunk deployment app. The deployment app includes the necessary configuration files for each endpoint to collect the certificate attributes from the Windows file system and return the data to the Splunk indexer. </p>
+				
+                <br>This application was created with the ambition to eliminate the need to: </br>
+                    <ul>
+					  <li>Manually scan every end-point, using various tools.</li>
+		              <li>Consolidate the results from each endpoint.</li>
+					  <li>Compare the results against a whitelist/blacklist.</li>
+					  <li>Correlate data between endpoints to find anomalies.</li>
+					  <li>Identify undesirable CAs for removal.</li>
+					</ul>
+			
+			<br><h2><u><font color="#6699FF">High-Level Description </font></u></h2></br>
+				<p>This system diagram illustrates the main components of CASA. The App is divided into two pieces, working together: a Splunk app and a Splunk deployment app. <em>The deployment app</em> includes the necessary configuration files for each endpoint to collect the certificate attributes from the Windows file system and sends the data to the Splunk indexer. <em>The Splunk app</em> contains the lookups, searches, and dashboards for the user.</p>
+				<img src="/static/app/CASA/high-level-casa.png" />
+				
+			<br><h2><u><font color="#6699FF">CAs versus Certificates </font></u></h2></br>
+				<p>It is important to note that CASA deals with Certificate Authorities, not certificates. This means no end certificates are used in the dashboards, though they are technically collected. CASA produces metrics based on Root and Intermediate certificates, as depicted by the red box below:</p>
+				<img src="/static/app/CASA/CASA-CAs.jpg" />
+				<br></br> 
+			
+			<br><h2><u><font color="#6699FF">Limitations </font></u></h2></br>
+				<p>The current Batch script pulls data only from the LocalMachine certificate store. The reason for this is because a User certificate store is not generated until a user logs in. If this store were used instead of the LocalMachine store, the overall picture being represented by the app may not be wholesome. This means that a user may have custom CAs installed that would not otherwise be noticed by the Batch script. Though this was a design decision, it is still a limitation.</p>
+
+
+			<br><h2><u><font color="#6699FF">The X.509 certificate stores</font></u></h2></br>
+				<p>In order to identify certificates as CAs the certificate store(s) of interest should be determined. The purpose of each certificate store is outlined below. Note the descriptions identifying three Microsoft stores for certification authorities, these are the certificate stores our Batch script will analyze. </p>
+
+				<style type="text/css">
+				.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;margin-left:auto;margin-right:auto;}
+				.tg td{font-family:Arial, sans-serif;font-size:12px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+				.tg th{font-family:Arial, sans-serif;font-size:12px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+				.tg .tg-q3aw{font-weight:bold;background-color:#9b9b9b;color:#333333;vertical-align:top}
+				.tg .tg-9hbo{font-weight:bold;vertical-align:top}
+				.tg .tg-yw4l{vertical-align:top}
+				</style>
+				<table class="tg">
+				  <tr>
+					<th class="tg-q3aw">Member Name</th>
+					<th class="tg-q3aw">Description</th>
+				  </tr>
+				  <tr>
+					<td class="tg-9hbo">AddressBook</td>
+					<td class="tg-yw4l">Certificate store for other users.</td>
+				  </tr>
+				  <tr>
+					<td class="tg-9hbo">AuthRoot</td>
+					<td class="tg-yw4l">Certificate store for third-party certification authorities (CAs).</td>
+				  </tr>
+				  <tr>
+					<td class="tg-9hbo">CertificationAuthority</td>
+					<td class="tg-yw4l">Certificate store for intermediate certification authorities (CAs).</td>
+				  </tr>
+				  <tr>
+					<td class="tg-9hbo">Disallowed</td>
+					<td class="tg-yw4l">Certificate store for revoked certificates.</td>
+				  </tr>
+				  <tr>
+					<td class="tg-9hbo">My</td>
+					<td class="tg-yw4l">Certificate store for personal certificates.</td>
+				  </tr>
+				  <tr>
+					<td class="tg-9hbo">Root</td>
+					<td class="tg-yw4l">Certificate store for trusted root certificate authorities (CAs).</td>
+				  </tr>
+				  <tr>
+					<td class="tg-9hbo">TrustedPeople</td>
+					<td class="tg-yw4l">Certificate store for directly trusted people and resources.</td>
+				  </tr>
+				  <tr>
+					<td class="tg-9hbo">TrustedPublisher</td>
+					<td class="tg-yw4l">Certificate store for application publishers that you trust.</td>
+				  </tr>
+				</table>
+
+							
+		</html>
+
+		<!-- BEGIN PANEL 2 -->
+		<html>
+			
+			<h1><center>Getting Started</center></h1>
+			<br></br>
+			<h5><p><em><font color="#999999">*Before continuing please note:
+				<ul>
+				  <li> Clear the whitelist/blacklist certificates listed in the lookup tables 'Blacklist.csv' and 'Whitelist.csv', certificates listed within the list as whitelist/blacklist were just used during testing.</li>
+				  <li> This application assumes its users have some working knowledge with certificates and certificate authorities. </li> 
+				</ul>
+				</font></em></p></h5>
+			<br></br>
+		    <h2><u><font color="#6699FF">Requirements</font></u></h2>
+				<p>The following reflect the successfully tested software in relation to this App's primary functionality. <em>Please note</em> the CASA app has not been extensively tested and should first be evaluated prior to entering production.</p>
+				
+					<h4>Software Requirements:</h4>
+					<ul>
+					  <li>Windows Operating System</li>
+					  <li>PowerShell 3.x or higher</li>
+					  <li>Splunk 6 or higher</li>
+					</ul>
+					<br></br> 
+					
+					<h4>Permission Requirements:</h4>
+					<p>Splunk must have permission to execute PowerShell commands.</p>
+					<br></br>
+					
+		    <h2><u><font color="#6699FF">Stepping through Configuration</font></u></h2>
+				<p>Begin configuration by first setting up the deployment app with your deployment server and ensuring endpoints are collecting. In order for collection to begin, Splunk must have permissions to execute PowerShell commands.</p>
+					
+					<h4>Configuration Items:</h4>
+					<ol>
+					  <li><a href="#step1">Setup Index</a></li>
+					  <li><a href="#step2">Deployment App</a></li>
+					  <li><a href="#step3">Endpoint Collection</a></li>
+					  <li><a href="#step4">Frequency of Collection</a></li>
+					</ol>
+					<br></br>								
+					
+					<div class="list">
+					  <h4 id="step1"><font color="#6666CC">Setup Index:</font></h4>
+					  <p>By default, CASA uses an index called <code><var>cert_auth</var></code>. In order to use a different index, or add additional indexes, see below to modify the associated tag in the app. </p>
+                      <p>CASA references the index and source in each of the visualizations using the following tags: <code><var>certificate_index</var></code> and <code><var>certificate_source</var></code>. If you want to change the field/value pairs for these tags 
+						<ul>
+                          <li>Change the Settings/Manager > Tags, sort by App 'CASA' and edit the <code><var>certificate_index</var></code> field-value pair to the new index.</li>
+						  <li>Change the deployment-apps index stanza found under $SPLUNK_HOME\etc\apps\casa\casa_deployment_app\inputs.conf.</li>
+                        </ul>
+                      </p>
+					  <br></br> 
+					
+					<h4 id="step2"><font color="#6666CC">Deployment App:</font></h4>
+					  <p>The CASA Splunk Deployment App found at this location <code><var>$SPLUNK_HOME\etc\apps\casa\casa</var></code> should be moved to the deployment-apps directory on the Deployment Server - 
+						<pre>$SPLUNK_HOME\etc\deployment-apps</pre>
+					  <p>The app should then be added, via the GUI, to the desired server class. <em>If a deployment server is not used, the app should be unzipped and placed in the apps directory on the desired Universal Forwarders - </em></p>
+						<pre>$SPLUNK_HOME\etc\apps</pre></p>
+						<br></br> 
+					
+					<h4 id="step3"><font color="#6666CC">Endpoint Collection:</font></h4>
+                      <p>The endpoints will perform collection according to when the job is <a href="#step4">configured to run</a>. </p>
+						
+						<u><br>PowerShell:</br></u>
+						<p>Splunk must have have permission  to execute PowerShell commands. WIthout this permission the <abbr title="Splunk Universal Forwarder"> SUF</abbr> can not gather the CA information for CASA.</p>
+						<p>Edit the code on the Splunk Deployment Server<code><var>$SPLUNK_HOME\etc\deployment-apps\casa\bin\certificateCollection.bat</var></code> in order to add any X.509 extension fields.</p>
+						
+                      <p>By default the script gathers the following fields:<p>
+                          <p>Primary Fields:
+						    <ul>
+                              <li>PSParentPath</li>
+                              <li>Enhanced Key Usage List</li>
+                              <li>Issuer</li>
+                              <li>NotAfter</li>
+                              <li>NotBefore</li>
+                              <li>Serial Number</li>
+                              <li>Public Key Algorithm</li>
+                              <li>Public Key Size</li>
+                              <li>Encoded Key Parameters</li>
+                              <li>Signature Algorithm</li>
+                              <li>Thumbprint</li>
+                              <li>Version</li>
+                              <li>Subject</li>
+                              <li>Public Key Value</li>
+                            </ul>
+                          </p>
+                          <p>Extended Fields (note, not all certificates use all extended fields):
+                            <ul>
+                              <li>Unique Identifiers</li>
+                              <li>Authority Key Identifier</li>
+                              <li>Subject Key Identifier</li>
+                              <li>Key Usage</li>
+                              <li>Certificate Policies</li>
+                              <li>Policy Mappings</li>
+                              <li>Subject Alternate Name</li>
+                              <li>Issuer Alternate Name</li>
+                              <li>Subject Directory Attributes</li>
+                              <li>Basic Constraints</li>
+                              <li>Name Constraints</li>
+                              <li>Policy Constraints</li>
+                              <li>Extended Key Usage</li>
+                              <li>CRL Distribution Points</li>
+                              <li>Inhibit Policy</li>
+                              <li>Freshest CRL</li>
+                              <li>Authority Information Access</li>
+                              <li>Subject Information Access</li>
+                            </ul>	
+                          </p>
+						<br></br>
+						<u><br>CertificateList.csv:</br></u>
+						<p>Once the script has run a new file will be generated on that local host endpoint containing all of the fields and values collected: <code><var>.\Windows\System32\certificateList.csv</var></code> </p>
+
+						<p>This is the resulting file which is read into splunk by the SUF.</p>
+						<br></br>
+						
+						<u><br>Altering the Lookup Tables:</br></u>
+						<p>Within the $SPLUNK_HOME\etc\apps\casa\lookups folder, there exist three lookup table files: DefaultCAList.csv, Whitelist.csv, and Blacklist.csv. To alter any of these lists, open the file in a text editor and save the changes; the lookup tables will be automatically updated.</p>
+						<br></br>
+					
+					<h4 id="step4"><font color="#6666CC">Frequency of Collection:</font></h4>
+						<p>The current configuration allows for collection of CAs once a week. To alter this collection two changes must be made.</p>
+							<ul>
+							<li>The first change is in the deployment app. Navigate to <b>$SPLUNK_HOME\etc\deployment-apps\casa\local </b>and open inputs.conf. Alter the cron schedule to the desired range, save the changes, and redeploy the app to the desired hosts (Note: the changes must be made on all of the hosts).</li>
+							<li> The second change is in the searches within the CASA app. Navigate to <b>$SPLUNK_HOME\etc\apps\casa\local</b> and open savedsearches.conf. For every saved search, find the search key and alter the hoursago argument to the desired ranged. Preferably, this integer would correlate to the time lapse between ingest cycles. Restart Splunk. [default is 7 days or 168 hours ago]</li>
+							</ul>
+						<br></br>
+                        </p>
+                      </p>
+					</div>
+					
+					<!--
+					<h4>Copy and Replace</h4>
+						<p>Install the files <code>COPY <var>"apps/static/casa.html"</var></code> to the directory following the information system information guidance advisory -
+						<pre>$SPLUNK_HOME\etc\apps</pre></p>
+					-->
+						
+		</html>
+	
+  </row>
+   
+</dashboard>

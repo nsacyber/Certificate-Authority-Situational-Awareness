@@ -1,0 +1,2304 @@
+{
+    "modelName": "Certificate_Authorities",
+    "displayName": "Certificate Authorities",
+    "description": "Provides normalization of Certificate Authority ingested data.",
+    "objectSummary": {
+        "Event-Based": 4,
+        "Transaction-Based": 0,
+        "Search-Based": 0
+    },
+    "objects": [
+        {
+            "objectName": "X509_Certificate_Standard",
+            "displayName": "X.509 Certificate Standard",
+            "parentName": "BaseEvent",
+            "fields": [
+                {
+                    "fieldName": "PSParentPath",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PSParentPath",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Thumbprint",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Thumbprint",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Encoded_Key_Parameters",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Encoded_Key_Parameters",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "EnhancedKeyUsageList",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "EnhancedKeyUsageList",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Public_Key_Algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Public_Key_Algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Public_Key_Size",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "number",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Public_Key_Size",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_end_time",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_end_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Authority_Key_Identifier",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Authority_Key_Identifier",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Basic_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Basic_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_CRL_Distribution_Points",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_CRL_Distribution_Points",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Certificate_Policies",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Certificate_Policies",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Extended_Key_Usage",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Extended_Key_Usage",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Freshest_CRL",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Freshest_CRL",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Inhibit_Policy",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Inhibit_Policy",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Issuer_Alternate_Name",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Issuer_Alternate_Name",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Key_Usage",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Key_Usage",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Name_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Name_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Policy_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Policy_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Policy_Mappings",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Policy_Mappings",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Alternative_Name",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Alternative_Name",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Directory_Attributes",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Directory_Attributes",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Key_Identifier",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Key_Identifier",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Unique_Identifiers",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Unique_Identifiers",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_issuer",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_issuer",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_pri_ext_Authority_Information_Access",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_pri_ext_Authority_Information_Access",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_pri_ext_Subject_Information_Access",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_pri_ext_Subject_Information_Access",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_publickey",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_publickey",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_publickey_algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_publickey_algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_serial",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_serial",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_signature_algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_signature_algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_start_time",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_start_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_subject",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_subject",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_version",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "number",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_version",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": "",
+                    "fieldSearch": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "StoreName",
+                            "owner": "X509_Certificate_Standard",
+                            "type": "string",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Certificate Store",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "inputField": "PSParentPath",
+                    "calculationID": "cpu87hhufgno2yb9",
+                    "owner": "X509_Certificate_Standard",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Rex",
+                    "expression": "\\w+\\.\\w+\\.\\w+.\\w+::\\w+.(?P<StoreName>.+)"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "tag=certificate_index tag=certificate_source",
+                    "owner": "X509_Certificate_Standard"
+                }
+            ],
+            "lineage": "X509_Certificate_Standard"
+        },
+        {
+            "objectName": "Certificate_Authority_Stores",
+            "displayName": "Certificate Authority Stores",
+            "parentName": "X509_Certificate_Standard",
+            "fields": [
+                {
+                    "fieldName": "PSParentPath",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PSParentPath",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Thumbprint",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Thumbprint",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Encoded_Key_Parameters",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Encoded_Key_Parameters",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "EnhancedKeyUsageList",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "EnhancedKeyUsageList",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Public_Key_Algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Public_Key_Algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Public_Key_Size",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "number",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Public_Key_Size",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_end_time",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_end_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Authority_Key_Identifier",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Authority_Key_Identifier",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Basic_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Basic_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_CRL_Distribution_Points",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_CRL_Distribution_Points",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Certificate_Policies",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Certificate_Policies",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Extended_Key_Usage",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Extended_Key_Usage",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Freshest_CRL",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Freshest_CRL",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Inhibit_Policy",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Inhibit_Policy",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Issuer_Alternate_Name",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Issuer_Alternate_Name",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Key_Usage",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Key_Usage",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Name_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Name_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Policy_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Policy_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Policy_Mappings",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Policy_Mappings",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Alternative_Name",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Alternative_Name",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Directory_Attributes",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Directory_Attributes",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Key_Identifier",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Key_Identifier",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Unique_Identifiers",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Unique_Identifiers",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_issuer",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_issuer",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_pri_ext_Authority_Information_Access",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_pri_ext_Authority_Information_Access",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_pri_ext_Subject_Information_Access",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_pri_ext_Subject_Information_Access",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_publickey",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_publickey",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_publickey_algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_publickey_algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_serial",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_serial",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_signature_algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_signature_algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_start_time",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_start_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_subject",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_subject",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_version",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "number",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_version",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": "",
+                    "fieldSearch": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Expired",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "boolean",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Expired",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "calculationID": "9m2y40r0aa0mgqfr",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if( strptime(ssl_end_time, \"%m/%d/%Y %I:%M:%S %p\") - now() < 0, \"True\", \"False\")"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Server",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "string",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Server",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "inputField": "host",
+                    "calculationID": "sjn1cch2i0ms4i",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Rex",
+                    "expression": "^(?<Server>[a-zA-Z]+)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Hash_Algorithm_Size",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "number",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Hash_Algorithm_Size",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "inputField": "ssl_signature_algorithm",
+                    "calculationID": "o3e3ihlxxuoez5mi",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Rex",
+                    "expression": "\\w+?(?P<Hash_Algorithm_Size>\\d+)\\w+"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Recommended_Algorithm",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "string",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Recommended_Algorithm",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "calculationID": "mm1xq1saad9dlsor",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(Public_Key_Algorithm==\"RSA\" AND Hash_Algorithm_Size>= 256 AND Public_Key_Size >= 2048, \"Recommended\", Public_Key_Algorithm==\"ECC\" AND Hash_Algorithm_Size >= 384 AND Encoded_Key_Parameters==\"06 05 2B 81 04 00 22\", \"Recommended\", Public_Key_Algorithm==\"ECC\" AND Hash_Algorithm_Size>= 256 AND Encoded_Key_Parameters==\"06 08 2A 86 48 CE 3D 03 01 07\", \"Recommended\", Public_Key_Algorithm==\"ECC\" AND isnull(Encoded_Key_Parameters), \"Unknown\", 1=1, \"Not Recommended\")"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Issuing_Country",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "string",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Issuing_Country",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "inputField": "ssl_issuer",
+                    "calculationID": "aegk0kbpwrx2bj4i",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Rex",
+                    "expression": "C=(?<Issuing_Country>[a-zA-Z]*)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Normalized_Issuing_Country",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "string",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Normalized_Issuing_Country",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "calculationID": "ktv68mqobhbprpb9",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "coalesce(upper(Issuing_Country), \"UNKNOWN\")"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Years_of_Validity",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "number",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Years_of_Validity",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "calculationID": "hrg4agsnvgbhjjor",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "ceil((strptime(ssl_end_time, \"%m/%d/%Y %I:%M:%S %p\") - strptime(ssl_start_time, \"%m/%d/%Y %I:%M:%S %p\")) / 31536000)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Days_Until_Expiration",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "number",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Days_Until_Expiration",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "calculationID": "u8vku0hxw84fs9k9",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "ceil((strptime(ssl_end_time, \"%m/%d/%Y %I:%M:%S %p\") - now()) / 86400)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Normalized_Key_Size",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "string",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Normalized_Key_Size",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "calculationID": "z36m1ed7ithgp66r",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "coalesce(Public_Key_Size, \"Unknown\")"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Blacklist_Status",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "boolean",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Blacklist_Status",
+                            "comment": "",
+                            "fieldSearch": "",
+                            "lookupOutputFieldName": "Status"
+                        }
+                    ],
+                    "calculationType": "Lookup",
+                    "lookupName": "CA Blacklist",
+                    "comment": "",
+                    "lookupInputs": [
+                        {
+                            "inputField": "Thumbprint",
+                            "lookupField": "Bad_Thumbprint"
+                        }
+                    ],
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "calculationID": "cce2khx08f9wwmi",
+                    "editable": true
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Whitelist_Status",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "boolean",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Whitelist_Status",
+                            "comment": "",
+                            "fieldSearch": "",
+                            "lookupOutputFieldName": "Status"
+                        }
+                    ],
+                    "calculationType": "Lookup",
+                    "lookupName": "CA Whitelist",
+                    "comment": "",
+                    "lookupInputs": [
+                        {
+                            "inputField": "Thumbprint",
+                            "lookupField": "Good_Thumbprint"
+                        }
+                    ],
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "calculationID": "ulv2bns2axl84cxr",
+                    "editable": true
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "White_Black_List_Status",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "string",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "White_Black_List_Status",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "calculationID": "8d5glt8w0mz8semi",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(Whitelist_Status = \"TRUE\" AND Blacklist_Status = \"TRUE\", \"Appears in Whitelist and Blacklist\", Whitelist_Status = \"TRUE\", \"White\", Blacklist_Status = \"TRUE\", \"Black\", isnull(Whitelist_Status) AND isnull(Blacklist_Status), \"Gray\")"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Days_Since_Event_Ingest",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "number",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Days_Since_Event_Ingest",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "calculationID": "241tlgoe57lxflxr",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "ceil((now()-_time)/86400)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Browser",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "string",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Browser",
+                            "comment": "",
+                            "fieldSearch": "",
+                            "lookupOutputFieldName": "Browser"
+                        }
+                    ],
+                    "calculationType": "Lookup",
+                    "lookupName": "Default CA List",
+                    "comment": "",
+                    "lookupInputs": [
+                        {
+                            "inputField": "Thumbprint",
+                            "lookupField": "SHA-1 Fingerprint"
+                        }
+                    ],
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "calculationID": "3anc235tgrs5rk9",
+                    "editable": true
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "Default_Status",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                            "type": "string",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Default_Status",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "calculationID": "njk7kigbbg3krzfr",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(Browser),\"Non-default\",\"Default\")"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "tag=certificate_authority",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores"
+                }
+            ],
+            "lineage": "X509_Certificate_Standard.Certificate_Authority_Stores"
+        },
+        {
+            "objectName": "Not_Expired_Certificate_Authorities",
+            "displayName": "Not Expired Certificate Authorities",
+            "parentName": "Certificate_Authority_Stores",
+            "fields": [
+                {
+                    "fieldName": "PSParentPath",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PSParentPath",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Thumbprint",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Thumbprint",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Encoded_Key_Parameters",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Encoded_Key_Parameters",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "EnhancedKeyUsageList",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "EnhancedKeyUsageList",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Public_Key_Algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Public_Key_Algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Public_Key_Size",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "number",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Public_Key_Size",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_end_time",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_end_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Authority_Key_Identifier",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Authority_Key_Identifier",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Basic_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Basic_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_CRL_Distribution_Points",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_CRL_Distribution_Points",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Certificate_Policies",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Certificate_Policies",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Extended_Key_Usage",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Extended_Key_Usage",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Freshest_CRL",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Freshest_CRL",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Inhibit_Policy",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Inhibit_Policy",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Issuer_Alternate_Name",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Issuer_Alternate_Name",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Key_Usage",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Key_Usage",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Name_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Name_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Policy_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Policy_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Policy_Mappings",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Policy_Mappings",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Alternative_Name",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Alternative_Name",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Directory_Attributes",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Directory_Attributes",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Key_Identifier",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Key_Identifier",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Unique_Identifiers",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Unique_Identifiers",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_issuer",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_issuer",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_pri_ext_Authority_Information_Access",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_pri_ext_Authority_Information_Access",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_pri_ext_Subject_Information_Access",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_pri_ext_Subject_Information_Access",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_publickey",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_publickey",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_publickey_algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_publickey_algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_serial",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_serial",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_signature_algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_signature_algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_start_time",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_start_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_subject",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_subject",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_version",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "number",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_version",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": "",
+                    "fieldSearch": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "Expired=\"False\"",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores.Not_Expired_Certificate_Authorities"
+                }
+            ],
+            "lineage": "X509_Certificate_Standard.Certificate_Authority_Stores.Not_Expired_Certificate_Authorities"
+        },
+        {
+            "objectName": "Days_Since_First_Seen",
+            "displayName": "Days Since First Seen",
+            "parentName": "Certificate_Authority_Stores",
+            "fields": [
+                {
+                    "fieldName": "PSParentPath",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PSParentPath",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Thumbprint",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Thumbprint",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "index",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "index",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Encoded_Key_Parameters",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Encoded_Key_Parameters",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "EnhancedKeyUsageList",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "EnhancedKeyUsageList",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Public_Key_Algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Public_Key_Algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "Public_Key_Size",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "number",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Public_Key_Size",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_end_time",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_end_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Authority_Key_Identifier",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Authority_Key_Identifier",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Basic_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Basic_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_CRL_Distribution_Points",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_CRL_Distribution_Points",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Certificate_Policies",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Certificate_Policies",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Extended_Key_Usage",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Extended_Key_Usage",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Freshest_CRL",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Freshest_CRL",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Inhibit_Policy",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Inhibit_Policy",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Issuer_Alternate_Name",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Issuer_Alternate_Name",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Key_Usage",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Key_Usage",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Name_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Name_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Policy_Constraints",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Policy_Constraints",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Policy_Mappings",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Policy_Mappings",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Alternative_Name",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Alternative_Name",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Directory_Attributes",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Directory_Attributes",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Subject_Key_Identifier",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Subject_Key_Identifier",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_ext_Unique_Identifiers",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_ext_Unique_Identifiers",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_issuer",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_issuer",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_pri_ext_Authority_Information_Access",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_pri_ext_Authority_Information_Access",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_pri_ext_Subject_Information_Access",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_pri_ext_Subject_Information_Access",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_publickey",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_publickey",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_publickey_algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_publickey_algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_serial",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_serial",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_signature_algorithm",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_signature_algorithm",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_start_time",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_start_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_subject",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_subject",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "ssl_version",
+                    "owner": "X509_Certificate_Standard",
+                    "type": "number",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "ssl_version",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": "",
+                    "fieldSearch": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": "",
+                    "fieldSearch": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "days",
+                            "owner": "X509_Certificate_Standard.Certificate_Authority_Stores.Days_Since_First_Seen",
+                            "type": "string",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Days",
+                            "comment": "",
+                            "fieldSearch": ""
+                        }
+                    ],
+                    "calculationID": "88wwvntd78jgu8fr",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores.Days_Since_First_Seen",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "ceil((now()-_time)/86400)"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "",
+                    "owner": "X509_Certificate_Standard.Certificate_Authority_Stores.Days_Since_First_Seen"
+                }
+            ],
+            "lineage": "X509_Certificate_Standard.Certificate_Authority_Stores.Days_Since_First_Seen"
+        }
+    ],
+    "objectNameList": [
+        "X509_Certificate_Standard",
+        "Certificate_Authority_Stores",
+        "Not_Expired_Certificate_Authorities",
+        "Days_Since_First_Seen"
+    ]
+}

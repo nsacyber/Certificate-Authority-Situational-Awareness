@@ -1,0 +1,9 @@
+<nav search_view="search" color="#65A637">
+  <view name="Metrics" />  
+  <view name="Analytics" />
+  <view name="CA_Search"/>
+  <view name="CA_Extensions"/>
+  <view name="About" default="true" />
+  <view name="search" />
+  <view name="reports" />	
+</nav>

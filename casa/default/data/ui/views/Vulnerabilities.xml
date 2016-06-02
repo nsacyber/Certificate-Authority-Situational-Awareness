@@ -1,0 +1,61 @@
+<form>
+  <label>Vulnerabilities</label>
+  <fieldset submitButton="false" autoRun="false">
+    <input type="multiselect" token="host" searchWhenChanged="true">
+      <label>Host</label>
+      <search>
+        <query>index=cert_auth source="*certificateList.csv" hoursago=168 | eval StoreName=ltrim(PSParentPath, "Microsoft.PowerShell.Security\\Certificate::LocalMachine\\") | where StoreName="Root" OR StoreName="A" | eval ed2=strptime(NotAfter, "%m/%d/%Y %I:%M:%S %p") | eval now=now()  | eval timeDiff=ed2-now | where timeDiff&gt;0 | table host | dedup host</query>
+        <earliest>0</earliest>
+      </search>
+      <valuePrefix>host="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <fieldForLabel>host</fieldForLabel>
+      <fieldForValue>host</fieldForValue>
+      <delimiter> OR </delimiter>
+      <default>*</default>
+      <choice value="*">All</choice>
+    </input>
+    <input type="multiselect" token="issuer" searchWhenChanged="true">
+      <label>Issuer</label>
+      <search>
+        <query>index=cert_auth source="*certificateList.csv" hoursago=168 | eval StoreName=ltrim(PSParentPath, "Microsoft.PowerShell.Security\\Certificate::LocalMachine\\") | where StoreName="Root" OR StoreName="A" | eval ed2=strptime(NotAfter, "%m/%d/%Y %I:%M:%S %p") | eval now=now()  | eval timeDiff=ed2-now | where timeDiff&gt;0 | table Issuer | dedup Issuer</query>
+        <earliest>0</earliest>
+      </search>
+      <fieldForLabel>Issuer</fieldForLabel>
+      <fieldForValue>Issuer</fieldForValue>
+      <valuePrefix>Issuer="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <delimiter> OR </delimiter>
+      <choice value="*">All</choice>
+      <default>*</default>
+    </input>
+    <input type="multiselect" token="thumbprint" searchWhenChanged="true">
+      <label>Thumbprint</label>
+      <default>*</default>
+      <search ref="Unique Thumbprints"></search>
+      <fieldForLabel>Thumbprint</fieldForLabel>
+      <fieldForValue>Thumbprint</fieldForValue>
+      <valuePrefix>Thumbprint="</valuePrefix>
+      <valueSuffix>"</valueSuffix>
+      <delimiter> OR </delimiter>
+      <choice value="*">All</choice>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <table>
+        <title>Certificate Authorities</title>
+        <search>
+          <query>index=cert_auth source="*certificateList.csv" hoursago=168 $host$ $issuer$ $thumbprint$ | eval StoreName=ltrim(PSParentPath, "Microsoft.PowerShell.Security\\Certificate::LocalMachine\\") | where StoreName="Root" OR StoreName="A" OR StoreName="CertAuth" | eval ed2=strptime(NotAfter, "%m/%d/%Y %I:%M:%S %p") | eval now=now()  | eval timeDiff=ed2-now | where timeDiff&gt;0  | table host, Subject, Issuer, NotBefore, NotAfter, Thumbprint | rename host AS "Host"</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">true</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="count">100</option>
+      </table>
+    </panel>
+  </row>
+</form>
